@@ -1,0 +1,31 @@
+{% extends 'main/base.html '%}
+
+{% block title %}
+Новости
+{% endblock %}
+
+
+{% block content %}
+
+
+
+{% for el in tasks %}
+    <div class="news-wrapper">
+        <div class="news">
+            <a href="/about/{{ el.id }}" target="_blank">
+                <div class="news-article">
+                    <img src="{{ el.image_url }}" alt="Фото новости" width="400px">
+                    <div class="news-content">
+                        <h4>{{ el.title }}</h4>
+                        <p>{{ el.task }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
+
+
+

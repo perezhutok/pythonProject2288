@@ -1,0 +1,133 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Новости
+{% endblock %}
+
+{% block content %}
+<head>
+    <title></title>
+<style>
+     body {
+    background:#FFFFFF;
+    background-size: cover;
+  }
+  .menu {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+ /* background-color: rgba(255, 255, 255, 0.3); /* Making it slightly transparent */
+  backdrop-filter: blur(10px); /* Adding a blur effect for transparency */
+  height: 70px; /* Making the menu taller */
+}
+
+.menu a {
+  text-decoration: none;
+ padding: 10px 100px; /* Increased padding to add more space around the links */
+  color: black;
+ /* background-color: rgba(255, 255, 255, 0.5); */
+
+}
+
+  .menu-logo {
+       position: absolute;
+        top: 10px;
+        left: 10px;
+        margin-left: 10px; }
+
+      .news-wrapper {
+          display: flex;
+          justify-content: center;
+           margin-top: 50px;
+          margin-bottom: 50px;
+      }
+
+      .news {
+    text-align: center;
+    background-color: #C0C0C0;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Set the width to 80% or any desired width */
+    margin: 0 auto; /* Center the block horizontally */
+}
+
+      .news-article {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          background-color: white;
+      }
+
+      .news-article img {
+          display: block;
+          margin-right: 20px;
+          border-radius: 4px;
+      }
+
+      .news-content {
+          flex: 1;
+      }
+
+      .news-article h3 {
+          color: #000000;
+          font-size: 18px;
+      }
+
+      .news-article p {
+          color: #000000;
+      }
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+</style>
+</head>
+<body>
+
+{% for el. in tasks %}
+<div class="news-wrapper">
+    <div class="news">
+        <h2>Новости</h2>
+
+        <div class="news-article">
+            <img src="https://i.postimg.cc/RZ7QhyXY/2024-06-10-200507725.png" alt="Изображение новости 1" width="300px">
+            <div class="news-content">
+                <h3> {{ el.title }} </h3>
+                <p>{{ el.task }}</p>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
+
+
+</body>
+
+
+

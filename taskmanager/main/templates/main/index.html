@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+
+<title>Главная страница</title>
+<style>
+     body {
+    background:#FFFFFF;
+    background-size: cover;
+  }
+  .menu {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+ /* background-color: rgba(255, 255, 255, 0.3); /* Making it slightly transparent */
+  backdrop-filter: blur(10px); /* Adding a blur effect for transparency */
+  height: 70px; /* Making the menu taller */
+}
+
+.menu a {
+  text-decoration: none;
+ padding: 10px 100px; /* Increased padding to add more space around the links */
+  color: black;
+ /* background-color: rgba(255, 255, 255, 0.5); */
+
+}
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    width: 95%; /* увеличиваем ширину до 95% */
+    margin: 40px auto 100px; /* увеличиваем верхний отступ до 40px */
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #C0C0C0; /* добавляем фоновый цвет */
+}
+  .menu-logo {
+       position: absolute;
+        top: 10px;
+        left: 10px;
+        margin-left: 10px; }
+
+      .news-wrapper {
+          display: flex;
+          justify-content: center;
+      }
+
+      .news {
+    text-align: center;
+    background-color: #C0C0C0;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Set the width to 80% or any desired width */
+    margin: 0 auto; /* Center the block horizontally */
+}
+
+      .news-article {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          background-color: white;
+      }
+
+      .news-article img {
+          display: block;
+          margin-right: 20px;
+          border-radius: 4px;
+      }
+
+      .news-content {
+          flex: 1;
+      }
+
+      .news-article h3 {
+          color: #000000;
+          font-size: 18px;
+      }
+
+      .news-article p {
+          color: #000000;
+      }
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+</style>
+</head>
+<body>
+<div class="menu">
+    <div class="menu-logo">
+        <img src="https://images.nplod.ru/gen_images_3/pbL0X0WmoV99X8lL7MSp2ZoZ0E3DEnaH_sm.jpg" alt="Логотип" width="80px">
+   </div>
+    <a href="{% url 'index' %}"><h2>Главная</h2></a>
+<a href="{% url 'about' %}"><h2>Новости</h2></a>
+<a href="{% url 'contacts' %}"><h2>Контакты</h2></a>
+<a href="{% url 'enter' %}"><h2>Вход</h2></a>
+</div>
+
+
+<div class="main-content">
+  <div class="text-block">
+    <h1>Добро пожаловать на наш сайт!</h1>
+    <p><h2>На данном ресурсе вы можете найти самые свежие новости об играх, интересные обзоры, аналитику игровой индустрии, анонсы предстоящих событий и многое другое.</h2>
+      <h3>"ИгроБлог" постоянно обновляется, чтобы геймеры всегда были в курсе последних событий.</h3>
+
+  </div>
+  <img src="https://i.postimg.cc/tJsNggMd/2024-06-10-200341368.png" alt="" width="500px">
+</div>
+
+
+
+{% for el in tasks %}
+    <div class="news-wrapper">
+        <div class="news">
+            <a href="/about/{{ el.id }}" target="_blank">
+                <div class="news-article">
+                    <img src="{{ el.image_url }}" alt="Фото новости" width="400px">
+                    <div class="news-content">
+                        <h4>{{ el.title }}</h4>
+                        <p>{{ el.task }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endfor %}
+
+<footer class="footer">
+    <div class="contact-info">
+        <h4>Наши контакты</h4>
+        <p>Email: suppotr@igro.bl</p>
+        <p>Phone: 44-810-111-11-11</p>
+        <p>Адрес: Outpost 11 , Ebengrad, UK</p>
+    </div>
+</footer>
+
+</body>
+</html>
